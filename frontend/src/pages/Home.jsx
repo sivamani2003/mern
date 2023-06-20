@@ -66,6 +66,20 @@ const Home = () => {
         </Row>
       </Container>
     </section>
+    <section>
+      <Container>
+        <Row>
+          <Col lg='6'>
+            <div className="experience__content">
+              <Subtitle subtitle={'Experience'}/>
+              <h2>With all our Experience<br/> we will serve You</h2>
+              <p>Lorem ipsum dolor sit amet consectetur , autem.<br/>Lorem ipsum dolor sit amet consectetur ratione.</p>
+            </div>
+          </Col>
+          <Col lg='6'></Col>
+        </Row>
+      </Container>
+    </section>
   </>
 }
 
