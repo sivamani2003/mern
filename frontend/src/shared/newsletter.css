@@ -1,0 +1,11 @@
+.newsletter{
+    background: #cae5f4;
+    padding: 0;
+    margin-top: 3rem;
+}
+.newsletter__img img{
+    width: 100%;
+}
+.newletter__content{
+    padding: 50px 0;
+}

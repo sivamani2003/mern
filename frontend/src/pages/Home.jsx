@@ -11,6 +11,8 @@ import ServiceList from '../services/ServiceList'
 import FeaturedTourList from '../components/Featured-tours/FeaturedTourList'
 import experienceImg from './../assets/images/experience.png'
 import MasoryImagesGallery from '../components/Image-gallery/MasoryImagesGallery'
+import Testmonials from '../components/TestMonial/Testmonials'
+import Newsletters from '../shared/Newsletters'
 const Home = () => {
   return<>
     <section>
@@ -112,6 +114,20 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+    </section>
+    <section>
+      <Container>
+        <Row>
+          <Col lg='12'>
+            <Subtitle subtitle={'Fans Love'}/>
+            <h2 className="testmonial__title">What our fans said about us</h2>
+          </Col>
+          <Col lg='12'>
+            <Testmonials/>
+          </Col>
+        </Row>
+      </Container>
+      <Newsletters/>
     </section>
   </>
 }

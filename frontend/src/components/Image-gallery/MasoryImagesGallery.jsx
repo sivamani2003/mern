@@ -7,7 +7,7 @@ const MasoryImagesGallery = () => {
         <Mansory gutter='1rem'>
             {
                 galleryImages.map((item,index)=>(
-                    <img 
+                    <img className="mansory__img"
                         src={item} 
                         key={index} 
                         alt="" 
