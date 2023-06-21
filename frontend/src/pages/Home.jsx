@@ -9,6 +9,8 @@ import worldImg from '../assets/images/world.png'
 import SearchBar from '../shared/SearchBar'
 import ServiceList from '../services/ServiceList'
 import FeaturedTourList from '../components/Featured-tours/FeaturedTourList'
+import experienceImg from './../assets/images/experience.png'
+import MasoryImagesGallery from '../components/Image-gallery/MasoryImagesGallery'
 const Home = () => {
   return<>
     <section>
@@ -75,8 +77,39 @@ const Home = () => {
               <h2>With all our Experience<br/> we will serve You</h2>
               <p>Lorem ipsum dolor sit amet consectetur , autem.<br/>Lorem ipsum dolor sit amet consectetur ratione.</p>
             </div>
+            <div className="conuter__wrapper d-flex align-items-center gap-5">
+              <div className="counter__box">
+                <span>12k+</span>
+                <h6>Successsful Trips</h6>
+              </div>
+              <div className="counter__box">
+                <span>2k+</span>
+                <h6>Regular clients</h6>
+              </div>
+              <div className="counter__box">
+                <span>5</span>
+                <h6>Years experience</h6>
+              </div>
+            </div>
           </Col>
-          <Col lg='6'></Col>
+          <Col lg='6'>
+            <div className="experience__img">
+              <img src={experienceImg} alt="" />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+    <section>
+      <Container>
+        <Row>
+          <Col lg='12'>
+            <Subtitle subtitle={'Gallery'}/>
+            <h2 className="gallery__title">Visit our customers tour gallery</h2>
+          </Col>
+          <Col lg='12'>
+            <MasoryImagesGallery/>
+          </Col>
         </Row>
       </Container>
     </section>
