@@ -9,11 +9,12 @@
 .footer .logo p{
     color: var(--text-color);
 }
-.social__link span a{
+.social__links span a {
     text-decoration: none;
     color: var(--heading-color);
     font-size: 1.2rem;
-}
+  }
+  
 .footer__link-title{
     color: var(--heading-color);
     margin-bottom: 1rem;
