@@ -1,12 +1,19 @@
-import Tour from '../models/Tour.js'
-export const createTour = async(req,res)=>{
-    const newTour = new Tour(req.body)
+import {createTour} from './../Tour.js'
+export const createTour = async (req, res) => {
+    const newTour = new Tour(req.body);
+    
     try {
-        console.log("before tour save");
-        const savedTour = await newTour.save();
-        console.log("after tour save");
-        res.status(200).json({success:true,message:'Sucessfully created',data:savedTour})
+      const savedTour = await newTour.save();  // Save the new tour to the database
+      
+      res.status(200).json({
+        success: true,
+        message: 'Successfully created',
+        data: savedTour
+      });
     } catch (err) {
-        res.status(500).json({success:false,message:'Failed to create .Try again'})
+      res.status(500).json({
+        success: false,
+        message: 'Failed to create. Try again'
+      });
     }
-}
+  };
