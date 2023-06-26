@@ -27,7 +27,7 @@ export const login = async (req, res) => {
       if (!user) {
         return res.status(404).json({ success: false, message: 'User not found' });
       }
-      const checkCorrectPassword = bcrypt.compare(req.body.password, user.password);
+      const checkCorrectPassword = await bcrypt.compare(req.body.password, user.password);
       if (!checkCorrectPassword) {
         return res.status(401).json({ success: false, message: 'Incorrect email or password' });
       }
@@ -42,9 +42,9 @@ export const login = async (req, res) => {
           expries:token.expiresIn
       })
       .status(200).json({
-          success: true,
-          message: 'Successfully logged in',
+          token,
           data: { ...rest },
+          role,
       });
     } catch (err) {
       res.status(500).json({ success: false, message: 'Failed to login' });
