@@ -102,3 +102,50 @@ export const getAllTour = async(req,res)=>{
             })
     }
 }
+export const getTourBySearch = async(req,res)=>{
+    const city = new RegExp(req.query.city,'i')
+    const distance = parseInt(req.query.distance)
+    const maxGroupSize = parseInt(req.query.maxGroupSize)
+    try {
+        const tours = await Tour.find({city,distance:{$gte:distance},maxGroupSize:{$gte:maxGroupSize}})
+        res.status(200).json({
+            sucess:true,
+            message:'Sucessfull',
+            data:tours,
+        })
+    } catch (err) {
+        res
+        .status(500)
+        .json({
+            sucess:false,
+            message:'Failed to deleted',
+        })
+    }
+}
+export const getFeaturedTour = async(req,res)=>{
+    try {
+        const tours = await Tour.find({featured:true}).limit(8)
+
+        res.status(200).json({
+            sucess:true,
+            message:'Sucessfull',
+            data:tours,
+        })
+    } catch (err) {
+        res
+            .status(500)
+            .json({
+                sucess:false,
+                message:'Failed to deleted',
+            })
+    }
+}
+export const getTourCount=async(req,res)=>{
+    try {
+        const tourCount=await Tour.estimatedDocumentCount()
+
+        res.status(200).json({sucess:true,data:tourCount})
+    } catch (err) {
+        res.status(500).json({sucess:false,message:'failed to fecth'})
+    }
+}
