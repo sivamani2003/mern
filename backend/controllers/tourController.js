@@ -10,7 +10,7 @@ export const createTour = async(req,res)=>{
             .json({
                 sucess:true,
                 message:'Sucessfully created',
-                data:savedTour
+                data:savedTour,
             })
 
     } catch (err) {
@@ -20,9 +20,85 @@ export const createTour = async(req,res)=>{
 
 
 export const updateTour = async(req,res)=>{
+    const id =req.params.id
     try {
-        
+        const updatedTour = await Tour.findByIdAndUpdate(id,{
+            $set:req.body
+        },{new:true})
+        res
+            .status(200)
+            .json({
+                sucess:true,
+                message:'Sucessfully updated',
+                data:updatedTour,
+            })
     } catch (err) {
-        
+        res
+            .status(500)
+            .json({
+                sucess:false,
+                message:'Failed to update',
+            })
+    }
+}
+
+export const deleteTour = async(req,res)=>{
+    const id =req.params.id
+    try {
+            await Tour.findByIdAndDelete(id)
+        res
+            .status(200)
+            .json({
+                sucess:true,
+                message:'Sucessfully deleted',
+            })
+    } catch (err) {
+        res
+            .status(500)
+            .json({
+                sucess:false,
+                message:'Failed to deleted',
+            })
+    }
+}
+
+export const getSingleTour = async(req,res)=>{
+    const id =req.params.id
+    try {
+          const tour =  await Tour.findById(id)
+        res
+            .status(200)
+            .json({
+                sucess:true,
+                message:'Sucessful',
+                data:tour,
+            })
+    } catch (err) {
+        res
+            .status(404)
+            .json({
+                sucess:false,
+                message:'not found',
+            })
+    }
+}
+export const getAllTour = async(req,res)=>{
+    const page = parseInt(req.query.page)
+    try {
+        const tours = await Tour.find({}).skip(page*8).limit(8)
+
+        res.status(200).json({
+            sucess:true,
+            count:tours.length,
+            message:'Sucessfull',
+            data:tours,
+        })
+    } catch (err) {
+        res
+            .status(500)
+            .json({
+                sucess:false,
+                message:'Failed to deleted',
+            })
     }
 }
