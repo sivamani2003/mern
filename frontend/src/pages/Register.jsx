@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import './../styles/login.css'
 import { Container,Row,Col,Form,FormGroup,Button } from 'reactstrap'
 import {Link} from 'react-router-dom'
-import registerImg from './../assets/images/register.png'
-import userIcon from './../assets/images/user.png'
+import registerImg from '/images/register.png'
+import userIcon from '/images/user.png'
 const Register = () => {
   const [credentials,setCredentials] = useState({
     username:undefined,
